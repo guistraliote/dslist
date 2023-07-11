@@ -21,24 +21,30 @@ public class Game {
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String platform;
-	private String imgURL;
-	private String shortDiscription;
-	private String longDiscription;
+	private String platforms;
+	private Double score;
+	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
+	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")
+	private String longDescription;
 	
 	public Game() {
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String platform, String imgURL,
-			String shortDiscription, String longDiscription) {
+	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
-		this.imgURL = imgURL;
-		this.shortDiscription = shortDiscription;
-		this.longDiscription = longDiscription;
+		this.platforms = platforms;
+		this.score = score;
+		this.imgUrl = imgUrl;
+		this.shortDescription = shortDescription;
+		this.longDescription = longDescription;
 	}
 
 	public Long getId() {
@@ -73,36 +79,44 @@ public class Game {
 		this.genre = genre;
 	}
 
-	public String getPlatform() {
-		return platform;
+	public String getPlatforms() {
+		return platforms;
 	}
 
-	public void setPlatform(String platform) {
-		this.platform = platform;
+	public void setPlatforms(String platforms) {
+		this.platforms = platforms;
 	}
 
-	public String getImgURL() {
-		return imgURL;
+	public Double getScore() {
+		return score;
 	}
 
-	public void setImgURL(String imgURL) {
-		this.imgURL = imgURL;
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
-	public String getShortDiscription() {
-		return shortDiscription;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
-	public void setShortDiscription(String shortDiscription) {
-		this.shortDiscription = shortDiscription;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
-	public String getLongDiscription() {
-		return longDiscription;
+	public String getShortDescription() {
+		return shortDescription;
 	}
 
-	public void setLongDiscription(String longDiscription) {
-		this.longDiscription = longDiscription;
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+
+	public String getLongDescription() {
+		return longDescription;
+	}
+
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
 	}
 
 	@Override
@@ -121,7 +135,4 @@ public class Game {
 		Game other = (Game) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
 }
